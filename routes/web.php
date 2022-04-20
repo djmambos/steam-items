@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Test;
+use App\Http\Controllers\MainPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,11 @@ use App\Http\Controllers\Test;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('main_page');
-});
+});*/
+
+Route::get('/', [MainPage::class, 'index']);
 
 Route::controller(Test::class)->group(function () {
     Route::get('/test', 'index');
